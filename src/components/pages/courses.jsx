@@ -340,15 +340,13 @@ our courses!             </h1>
         Choose how to enroll
       </h3>
 
-      <a
-      
-        href="/apply-form"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block w-full py-3 mb-3 bg-green-600 text-white rounded-xl text-center font-bold"
-      >
-        Enroll via WhatsApp
-      </a>
+      <Link
+  to="/apply-form"
+  className="block w-full py-3 mb-3 bg-green-600 text-white rounded-xl text-center font-bold"
+>
+  Enroll via WhatsApp
+</Link>
+
 
      <Link
   to="tel:201062541086"
