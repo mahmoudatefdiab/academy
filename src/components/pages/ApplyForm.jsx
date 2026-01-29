@@ -62,8 +62,8 @@ Course: ${formData.course}`;
           </div>
 
           <div>
-            <label className="block text-sm font-bold text-gray-700 mb-1">Email Address</label>
-            <input type="email" name="email" required value={formData.email} onChange={handleChange}
+            <label className="block text-sm font-bold text-gray-700 mb-1">Email Address(optional)</label>
+            <input type="email" name="email"   value={formData.email} onChange={handleChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600" placeholder="example@email.com" />
           </div>
 

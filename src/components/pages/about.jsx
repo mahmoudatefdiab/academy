@@ -28,7 +28,7 @@ const About = () => {
       description: "Expert in modern language teaching methods",
       Image: mahmoudImg
     },
-    {
+   /*{
       name: "Dana",
       role: "Head of Community",
       description: "Native speaker with international experience",
@@ -51,7 +51,7 @@ const About = () => {
       role: "Senior Instructor",
       description: "Native speaker with international experience",
       Image: naghemImg
-    }
+    }  */
   ]
 
   // Testimonials data remains but is not used in the JSX provided in the prompt.
@@ -124,9 +124,7 @@ const About = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="inline-block bg-red-100 px-4 py-2 rounded-full mb-4">
-                <span className="text-red-700 font-bold uppercase tracking-wider text-sm">Our Purpose</span>
-            </div>
+             
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">Our Mission</h2>
             <p className="text-gray-700 text-lg mb-6 leading-relaxed border-l-4 border-[#E8D461] pl-6">
               At Die Welle Akademie, we believe that learning German should be accessible, engaging, and effective. Our mission is to provide world-class education that empowers students to achieve fluency and confidence in the German language.
@@ -137,7 +135,7 @@ const About = () => {
           </div>
           
           {/* Image container themed with German colors */}
-          <div className="relative group">
+           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-tr from-gray-900 to-red-700 rounded-3xl transform translate-x-3 translate-y-3 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300"></div>
             <div className="relative bg-white p-2 rounded-3xl border-4 border-[#E8D461] shadow-2xl z-10 h-[400px] flex items-center justify-center overflow-hidden">
               <img 

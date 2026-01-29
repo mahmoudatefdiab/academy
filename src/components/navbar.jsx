@@ -34,12 +34,7 @@ const Navbar = () => {
           </div>
 
           {/* CTA Button */}
-          <Link 
-            to="/contact"
-            className="hidden md:block px-6 py-2 bg-[#E8D461] text-white rounded-lg hover:bg-blue-600 transition font-medium"
-          >
-            Get in Touch
-          </Link>
+          
 
           {/* Mobile Menu Button */}
           <button
@@ -81,13 +76,7 @@ const Navbar = () => {
             >
               Contact
             </Link>
-            <Link 
-              to="/contact"
-              className="block w-full mt-4 px-4 py-2 bg-[#E8D461] text-white rounded-lg hover:bg-blue-600 transition font-medium text-center"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Get in Touch
-            </Link>
+             
           </div>
         )}
       </div>

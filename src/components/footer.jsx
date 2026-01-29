@@ -89,13 +89,8 @@ const Footer = () => {
             >
               <Instagram size={18} />
             </a>
-            <a 
-              href="#" 
-              className="bg-gray-800 p-2 rounded-full hover:bg-[#0A66C2] hover:text-white transition duration-300" 
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={18} />
-            </a>
+            
+            
           </div>
         </div>
       </div>
