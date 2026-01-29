@@ -139,7 +139,7 @@ const Home = () => {
       {/* ================= BIG SPACER BEFORE STATS ================= */}
 <div className="text-center my-16">
   <p className="text-lg md:text-xl text-gray-700 italic max-w-2xl mx-auto">
-    "Learning German with Die Welle Akademie transformed my career and confidence!"
+    "Learning German with Die Welle Akademie transforms your career and confidence!"
   </p>
 </div>
 

@@ -1,41 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Facebook, MessageSquare } from 'lucide-react';
 import calling from '../../assets/calling.png';
-  // <-- replace with your real team image
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
+  const [offset, setOffset] = useState(0);
 
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-    setTimeout(() => setSubmitted(false), 5000);
-  };
+  // Parallax scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setOffset(window.scrollY * 0.35);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const contactInfo = [
     {
       icon: Mail,
       title: "Email",
       content: "sobhymostafa601@gmail.com",
-      link: "mailto:sobhymostafa601@gmail.com"
+      link: "https://mail.google.com/mail/?view=cm&fs=1&to=sobhymostafa601@gmail.com"
     },
     {
       icon: Phone,
@@ -46,7 +30,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Location",
-      content: "Nasr city, Egypt",
+      content: "Nasr City, Egypt",
       link: "https://www.bing.com/maps?q=Nasr+City+Cairo"
     },
     {
@@ -64,93 +48,89 @@ const Contact = () => {
   ];
 
   return (
-    <section className="relative py-24 shadow-xl overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden">
 
-      {/* BACKGROUND IMAGE */}
-      <div className="absolute inset-0 w-full h-full">
-        <img src={calling} alt="Background" className="w-full h-full object-cover" />
+      {/* ===== PARALLAX BACKGROUND ===== */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${calling})`,
+          transform: `translateY(${offset}px)`
+        }}
+      >
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-red-900/80 to-[#E8D461]/30"></div>
       </div>
 
-      <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px] z-0"></div>
-
-      {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10">
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight drop-shadow-lg">
-  interested? don't hesitate to contact us!      </h1>
-       
+      {/* ===== HEADER ===== */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 text-center text-white">
+        <h1 className="text-4xl md:text-6xl font-black mb-6 drop-shadow-lg">
+          Interested?
+        </h1>
+        <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+          Don’t hesitate to contact us — we’re always happy to help you start your journey.
+        </p>
       </div>
 
-     
-     
-      {/* Mission Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          
-          {/* Team Image */}
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-tr from-gray-900 to-red-700 rounded-3xl transform translate-x-3 translate-y-3 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300"></div>
-             
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Info Cards */}
-     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-20">
-  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 -mt-24">
+      {/* ===== CONTACT CARDS ===== */}
+      {/* ===== CONTACT CARDS (SMALL & SIMPLE) ===== */}
+<section className="relative z-10 max-w-6xl mx-auto px-6 py-20">
+  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
     {contactInfo.map((info, idx) => {
       const Icon = info.icon;
+
       return (
         <a
           key={idx}
           href={info.link}
           target="_blank"
-          rel="noopener noreferrer"
-          className="group bg-white/25 backdrop-blur-md hover:bg-white/50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center border-t-4 border-gray-900 hover:border-red-700 hover:-translate-y-1"
+          rel="noreferrer"
+          className="flex items-center gap-4 bg-white/80 rounded-xl px-5 py-4 shadow-sm hover:shadow-md transition hover:-translate-y-0.5"
         >
-          {/* Icon Circle */}
-          <div className="w-16 h-16 bg-gray-50/25 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#E8D461]/50 transition-colors duration-300">
-            <Icon className="text-gray-900 group-hover:text-white transition-colors duration-300" size={32} />
+          {/* Icon */}
+          <div className="p-2 rounded-lg bg-gray-100 text-red-600">
+            <Icon size={18} />
           </div>
 
-          {/* Title */}
-          <h3 className="font-bold text-xl text-gray-900 mb-2 group-hover:text-red-700 transition-colors">
-            {info.title}
-          </h3>
-
-          {/* Content */}
-          <p className="text-gray-600 font-medium group-hover:text-gray-900">
-            {info.content}
-          </p>
+          {/* Text */}
+          <div className="leading-tight">
+            <p className="text-xs font-bold text-gray-800 uppercase">
+              {info.title}
+            </p>
+            <span className="text-sm text-gray-600">
+              {info.content}
+            </span>
+          </div>
         </a>
       );
     })}
   </div>
 </section>
 
+      {/* ===== MAP SECTION ===== */}
+      <section className="relative z-10 max-w-7xl mx-auto px-6 pb-24 text-center">
+        <div className="bg-gray-900 rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-72 h-72 bg-red-700/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#E8D461]/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
-      {/* Map Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-        <div className="bg-gray-900 rounded-2xl p-12 text-white shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-red-700 rounded-full blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#E8D461] rounded-full blur-3xl opacity-10 transform -translate-x-1/2 translate-y-1/2"></div>
-
-          <h2 className="text-3xl font-bold mb-4 relative z-10">Visit Our Academy</h2>
+          <h2 className="text-3xl font-bold mb-4 relative z-10">
+            Visit Our Academy
+          </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto relative z-10">
-            Come meet us in person at our Nasr City branch. We are open Sunday through Thursday from 9 AM to 5 PM.
+            Meet us in Nasr City. We’re open Sunday to Thursday from 9 AM to 5 PM.
           </p>
-          <a 
-            href="https://www.bing.com/maps?q=Nasr+City+Cairo" 
-            target="_blank" 
+
+          <a
+            href="https://www.bing.com/maps?q=Nasr+City+Cairo"
+            target="_blank"
             rel="noreferrer"
-            className="inline-block px-8 py-3 bg-[#E8D461] text-gray-900 rounded-lg hover:bg-white hover:text-red-700 transition font-bold shadow-lg relative z-10"
+            className="inline-block px-8 py-3 bg-[#E8D461] text-gray-900 rounded-lg font-bold hover:bg-white hover:text-red-700 transition relative z-10"
           >
             Get Directions
           </a>
         </div>
       </section>
 
-      <div className="h-12"></div>
+      <div className="h-20"></div>
     </section>
   );
 };
