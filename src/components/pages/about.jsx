@@ -148,77 +148,88 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="bg-gray-50 py-24 relative relative">
-        {/* Diagonal stripe background accent */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-100/50 to-transparent skew-y-3 transform -z-10"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-             <h2 className="text-4xl font-bold text-gray-900">Our Core Values</h2>
-             <div className="w-24 h-1 bg-red-700 mx-auto mt-4 rounded-full"></div>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-10">
-            {/* Value Card 1 */}
-            <div className="bg-white p-10 rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 border-t-4 border-red-700 group">
-              <div className="bg-[#E8D461]/20 p-4 rounded-full inline-block mb-6 group-hover:bg-[#E8D461] transition-colors duration-300">
-                <CheckCircle className="text-[#E8D461] group-hover:text-white transition-colors duration-300" size={40} />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors">Quality</h3>
-              <p className="text-gray-600 leading-relaxed">We maintain the highest standards in curriculum development and instructor training.</p>
-            </div>
-            
-            {/* Value Card 2 */}
-            <div className="bg-white p-10 rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 border-t-4 border-gray-900 group">
-              <div className="bg-[#E8D461]/20 p-4 rounded-full inline-block mb-6 group-hover:bg-[#E8D461] transition-colors duration-300">
-                <CheckCircle className="text-[#E8D461] group-hover:text-white transition-colors duration-300" size={40} />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors">Community</h3>
-              <p className="text-gray-600 leading-relaxed">We foster a supportive environment where students learn together and grow together.</p>
-            </div>
-            
-            {/* Value Card 3 */}
-            <div className="bg-white p-10 rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 border-t-4 border-red-700 group">
-               <div className="bg-[#E8D461]/20 p-4 rounded-full inline-block mb-6 group-hover:bg-[#E8D461] transition-colors duration-300">
-                <CheckCircle className="text-[#E8D461] group-hover:text-white transition-colors duration-300" size={40} />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors">Innovation</h3>
-              <p className="text-gray-600 leading-relaxed">We continuously evolve our teaching methods to incorporate the latest language learning research.</p>
-            </div>
-          </div>
+     {/* Values Section with Parallax Background and Translucent Cards */}
+<section className="relative py-24 overflow-hidden">
+  {/* Parallax Background */}
+  <div
+    className="absolute inset-0 bg-center bg-cover z-0"
+    style={{
+      backgroundImage: `url(${teamimg})`,
+      backgroundAttachment: "fixed", // parallax effect
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      filter: "brightness(0.6)" // darken the background a bit
+    }}
+  ></div>
+
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="text-center mb-16 text-white">
+      <h2 className="text-4xl font-bold text-white">Our Core Values</h2>
+      <div className="w-24 h-1 bg-red-700 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-10">
+      {/* Value Card 1 */}
+      <div className="bg-white/40 backdrop-blur-lg p-10 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-red-700 group relative z-10">
+        <div className="bg-white/30 p-4 rounded-full inline-block mb-6 group-hover:bg-red-700 transition-colors duration-300">
+          <CheckCircle className="text-red-700 group-hover:text-white transition-colors duration-300" size={40} />
         </div>
-      </section>
+        <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors">Quality</h3>
+        <p className="text-gray-800 leading-relaxed">We maintain the highest standards in curriculum development and instructor training.</p>
+      </div>
 
-      {/* Team Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-         <div className="text-center mb-16">
-             <h2 className="text-4xl font-bold text-gray-900">Meet Our Team</h2>
-             <p className="text-xl text-gray-600 mt-4">The experts behind your success</p>
-          </div>
+      {/* Value Card 2 */}
+      <div className="bg-white/40 backdrop-blur-lg p-10 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-gray-900 group relative z-10">
+        <div className="bg-white/30 p-4 rounded-full inline-block mb-6 group-hover:bg-red-700 transition-colors duration-300">
+          <CheckCircle className="text-red-700 group-hover:text-white transition-colors duration-300" size={40} />
+        </div>
+        <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors">Community</h3>
+        <p className="text-gray-800 leading-relaxed">We foster a supportive environment where students learn together and grow together.</p>
+      </div>
+
+      {/* Value Card 3 */}
+      <div className="bg-white/40 backdrop-blur-lg p-10 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-red-700 group relative z-10">
+        <div className="bg-white/30 p-4 rounded-full inline-block mb-6 group-hover:bg-red-700 transition-colors duration-300">
+          <CheckCircle className="text-red-700 group-hover:text-white transition-colors duration-300" size={40} />
+        </div>
+        <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors">Innovation</h3>
+        <p className="text-gray-800 leading-relaxed">We continuously evolve our teaching methods to incorporate the latest language learning research.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Team Section */}
+<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+  <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-gray-900">Meet Our Team</h2>
+      <p className="text-xl text-gray-600 mt-4">The experts behind your success</p>
+  </div>
+
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+    {team.map((member, idx) => (
+      <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 text-center border border-gray-100 group hover:border-red-200">
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-          {team.map((member, idx) => (
-            <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 text-center border border-gray-100 group hover:border-red-200">
-              
-              <div className="w-28 h-28 rounded-full mx-auto mb-6 overflow-hidden p-1 bg-gradient-to-tr from-gray-900 to-red-700 group-hover:from-[#E8D461] group-hover:to-red-500 transition-all duration-500">
-                <img
-                  src={member.Image}
-                  alt={member.name}
-                  className="w-full h-full object-cover rounded-full border-4 border-white"
-                />
-              </div>
+        {/* Updated Image Container without border */}
+        <div className="overflow-hidden rounded-2xl mb-6 group-hover:scale-105 transform transition-transform duration-500">
+          <img
+            src={member.Image}
+            alt={member.name}
+            className="w-full h-64 object-cover"
+          />
+        </div>
 
-              <h3 className="font-bold text-xl text-gray-900 mb-2 group-hover:text-red-700 transition-colors">{member.name}</h3>
-              
-              <div className="inline-block bg-[#E8D461]/10 px-4 py-1 rounded-full mb-4">
-                 <p className="text-red-700 font-bold text-sm tracking-wide">{member.role}</p>
-              </div>
-              <p className="text-gray-600 text-md leading-relaxed">{member.description}</p>
-            </div>
-          ))}
-        </div>  
-      </section>
+        <h3 className="font-bold text-xl text-gray-900 mb-2 group-hover:text-red-700 transition-colors">{member.name}</h3>
+        
+        <div className="inline-block bg-gray-100 px-4 py-1 rounded-full mb-4">
+           <p className="text-gray-900 font-bold text-sm tracking-wide">{member.role}</p>
+        </div>
+        <p className="text-gray-600 text-md leading-relaxed">{member.description}</p>
+      </div>
+    ))}
+  </div>  
+</section>
+
  
       {/* CTA Section - German Flag Gradient */}
       <section className="bg-gradient-to-r from-gray-900 via-red-700 to-[#E8D461] py-24 relative overflow-hidden">
