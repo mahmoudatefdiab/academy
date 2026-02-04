@@ -7,6 +7,7 @@ import About from './components/pages/about.jsx'
 import Courses from './components/pages/courses.jsx'
 import Contact from './components/pages/contact.jsx'
 import ApplyForm from "./components/pages/ApplyForm.jsx";
+import  GermanGame from "./components/pages/games/game.jsx";
 
 
 const App = () => {
@@ -21,6 +22,8 @@ const App = () => {
             <Route path="/courses" element={<Courses />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/apply-form" element={<ApplyForm />} />
+            <Route path="/game" element={< GermanGame />} />
+
           </Routes>
         </main>
         <Footer />

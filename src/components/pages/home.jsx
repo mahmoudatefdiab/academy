@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
-
+import Game from "./games/game.jsx"
 // Asset Imports
 import ceo1 from '../../assets/8.jpeg';
 import ceo2 from '../../assets/7.jpeg';
@@ -232,6 +232,11 @@ const Home = () => {
               >
                 Get Started
               </Link>
+              
+            <Link
+                to="/game"
+                className="w-full sm:w-auto px-8 py-4 border-2 border-white/80 backdrop-blur-sm rounded-full font-bold hover:bg-white hover:text-gray-900 transition flex items-center justify-center gap-2"
+              >Play the game</Link>
               <button
                 onClick={scrollToDiscount}
                 className="w-full sm:w-auto px-8 py-4 border-2 border-white/80 backdrop-blur-sm rounded-full font-bold hover:bg-white hover:text-gray-900 transition flex items-center justify-center gap-2"
